@@ -1,0 +1,126 @@
+set terminal svg standalone name plotname enhanced size imageWidth,imageHeight
+set output output
+
+set multiplot title title font "Arial,14"
+
+set lmargin at screen 0.20
+set rmargin at screen 0.85
+set bmargin at screen 0.30
+set tmargin at screen 0.95
+
+set tic scale 0
+
+# color palette
+set palette defined (0 "black", 1 "black", 2 "black", 3 "dark-blue",  4 "blue", 5 "cyan", 6 "yellow", 7 "red")
+
+# power range
+set cbrange [0:maxPower]
+set cblabel "20log(nm/s)" font ",12"
+
+# date axis
+unset xtics
+
+unset ytics
+
+set view map
+
+splot ssam matrix using 1:2:3 with image
+
+#############################################################
+
+set lmargin at screen 0.10
+set rmargin at screen 0.20
+
+unset key
+
+set style data lines
+
+# when broadband, then the average ssam graph has a log scale on x axis
+if(broadbandScale eq "true"){
+    set logscale x	
+}
+
+
+set xrange [*:*] reverse
+
+# frequency Axis
+set ylabel "Frequency  (Hz)"
+set grid ytics
+tick = 1.0 * fftWindow / 25
+factor = cutoff / 25.0
+set yrange [0:tick*25]
+la(t) = sprintf('%.0f', t)
+set ytics (0 0, "" tick 1, "" 2*tick 1, "" 3*tick 1, "" 4*tick 1, la(5*factor) 5*tick, \
+	"" 6*tick 1, "" 7*tick 1, "" 8*tick 1, "" 9*tick 1, la(10*factor) 10*tick, \
+	"" 11*tick 1, "" 12*tick 1, "" 13*tick 1, "" 14*tick 1, la(15*factor) 15*tick, \
+	"" 16*tick 1, "" 17*tick 1, "" 18*tick 1, "" 19*tick 1, la(20*factor) 20*tick, \
+	"" 21*tick 1, "" 22*tick 1, "" 23*tick 1, "" 24*tick 1, la(25*factor) 25*tick)
+
+plot average_ssam using 1:0 with lines lc "#000000" lw 1.5
+
+#############################################################
+
+reset
+
+set lmargin at screen 0.20
+set rmargin at screen 0.85
+set bmargin at screen 0.10
+set tmargin at screen 0.30
+
+unset key
+unset ytics
+
+# date axis
+set xtics
+set grid xtics
+set ytics
+
+set ylabel "RSAM"
+
+set datafile separator ","
+
+set logscale y
+set yrange [1:300000]
+
+set xdata time
+set timefmt "%Y-%m-%d %H:%M:%S"
+
+set auto fix
+set style fill solid noborder
+
+plot rsam using 1:2 with lines lc "#000000"
+
+#############################################################
+
+unset multiplot
+reset
+
+imageHeight = imageHeight / 2
+
+set terminal svg standalone name plotname enhanced size imageWidth,imageHeight
+set output maxFreqsOutput
+
+unset key
+set tmargin at screen 0.90
+set bmargin at screen 0.15
+#set lmargin at screen 0.20
+#set rmargin at screen 0.85
+
+set title title offset 0,-1
+
+set xdata time
+set timefmt "%Y-%m-%d %H:%M:%S"
+set xtics in
+
+set ylabel "Frequency (Hz)"
+#set logscale y
+set yrange [0:cutoff]
+set ytics in
+
+set datafile separator ","
+
+set auto fix
+
+set style fill  transparent solid 0.2 noborder
+
+plot maxFreqs  using 1:($2 == 0 ? NaN : $2):($3*2*averagingFactor):3 with circles lc "blue"

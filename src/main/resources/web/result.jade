@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+
+  head
+    title RSAM & SSAM
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="web/uikit.min.css")
+    script(src='web/uikit.min.js')
+
+  body
+    
+    .uk-flex.uk-flex-middle.uk-padding-small.uk-margin-large-left.uk-margin-large-right
+        div
+            a(href="/", class="uk-h2 uk-link-heading") RSAM & SSAM
+        .uk-width-expand
+            .uk-flex.uk-flex-right
+                a(href="/custom", class="uk-button uk-button-primary") Back
+    hr(class="uk-margin-remove-vertical")
+    .uk-container.uk-align-center
+        img(src=context.graph)

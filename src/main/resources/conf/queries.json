@@ -1,0 +1,35 @@
+[
+    {
+        "type": "fdsn",
+        "S": "JULI1",
+        "C": "HHZ",
+        "N": "CM",
+        "L": "10",
+        "graphFormat": "svg",
+        "windowSize": 4096,
+        "windowFunction": "hann",
+        "responseFactor": 1.0
+    },
+    {
+        "type": "seedlink",
+        "S": "JULI2",
+        "C": "HHZ",
+        "N": "CM",
+        "L": "00",
+        "graphFormat": "svg",
+        "windowSize": 2048,
+        "windowFunction": "hann",
+        "responseFactor": 1.0
+    },
+    {
+        "type": "winston",
+        "S": "JULI3",
+        "C": "EHZ",
+        "N": "CM",
+        "L": "00",
+        "graphFormat": "svg",
+        "windowSize": 1024,
+        "windowFunction": "hann",
+        "responseFactor": 1.0
+    }
+]
