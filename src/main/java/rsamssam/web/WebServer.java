@@ -284,9 +284,11 @@ public class WebServer extends AbstractVerticle {
         if (year == null || year.isBlank() || month == null || month.isBlank()
                 || day == null || day.isBlank()) {
             graphs = history.latestGraphs();
-            year = history.getLatestYearIndex() + "";
-            month = history.getLatestMonthIndex() + "";
-            day = history.getLatestDayIndex() + "";
+            if (!graphs.isEmpty()) {
+                year = history.getLatestYearIndex() + "";
+                month = history.getLatestMonthIndex() + "";
+                day = history.getLatestDayIndex() + "";
+            }
         } else {
             graphs = history.graphsForDate(year, month, day, filters);
             Map<String, String> indexes = history.indexes(year, month, day);

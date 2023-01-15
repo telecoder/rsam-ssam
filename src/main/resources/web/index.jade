@@ -9,28 +9,34 @@ html(lang="en")
     script(src='web/historyUtils.js')
   body
   
-    .uk-flex.uk-flex-middle.uk-padding-small.uk-margin-large-left.uk-margin-large-right
-        div
-            a(href="/", class="uk-h2 uk-link-heading") RSAM & SSAM
-        .uk-width-expand
-            form(name="historyParams", action="/", method="post")
-                .uk-flex.uk-flex-right
-                    .uk-margin-left
-                        select(id="year", name="year", class="uk-select uk-form-width-small", onChange="updateMonths(#{context.historyJson})")
-                            each year, i in context.history.years
-                                option(value=year.name selected=(i == context.selectedYear)) #{year.name}
-                    .uk-margin-left
-                        select(id="month", name="month", class="uk-select uk-form-width-small", onChange="updateDays(#{context.historyJson})")
-                            each month, i in context.history.years[context.selectedYear].months
-                                option(value=month.name selected=(i == context.selectedMonth)) #{month.name}
-                    .uk-margin-left
-                        select(id="day", name="day", class="uk-select uk-form-width-small")
-                            each day, i in context.history.years[context.selectedYear].months[context.selectedMonth].days
-                                option(value=day.name selected=(i == context.selectedDay)) #{day.name}
-                    .uk-margin-left
-                        button(id="search", type="submit", class="uk-button uk-button-primary") Search
-    hr(class="uk-margin-remove-vertical")
+    if !context.graphs.isEmpty()
+        .uk-flex.uk-flex-middle.uk-padding-small.uk-margin-large-left.uk-margin-large-right
+            div
+                a(href="/", class="uk-h2 uk-link-heading") RSAM & SSAM
+            .uk-width-expand
+                form(name="historyParams", action="/", method="post")
+                    .uk-flex.uk-flex-right
+                        .uk-margin-left
+                            select(id="year", name="year", class="uk-select uk-form-width-small", onChange="updateMonths(#{context.historyJson})")
+                                each year, i in context.history.years
+                                    option(value=year.name selected=(i == context.selectedYear)) #{year.name}
+                        .uk-margin-left
+                            select(id="month", name="month", class="uk-select uk-form-width-small", onChange="updateDays(#{context.historyJson})")
+                                each month, i in context.history.years[context.selectedYear].months
+                                    option(value=month.name selected=(i == context.selectedMonth)) #{month.name}
+                        .uk-margin-left
+                            select(id="day", name="day", class="uk-select uk-form-width-small")
+                                each day, i in context.history.years[context.selectedYear].months[context.selectedMonth].days
+                                    option(value=day.name selected=(i == context.selectedDay)) #{day.name}
+                        .uk-margin-left
+                            button(id="search", type="submit", class="uk-button uk-button-primary") Search
+        hr(class="uk-margin-remove-vertical")
+        
+        for graph in context.graphs
+            img(src=graph, class="uk-align-center") 
     
-    for graph in context.graphs
-        img(src=graph, class="uk-align-center") 
+    else
+        img(src="web/gerberas-attempt.svg", class="uk-align-center") 
+
+    
                         

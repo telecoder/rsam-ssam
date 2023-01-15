@@ -33,7 +33,7 @@ public class Main {
     static {
         System.setProperty("vertx.logger-delegate-factory-class-name",
                 "io.vertx.core.logging.SLF4JLogDelegateFactory");
-        System.setProperty("logback.configurationFile", "conf/logback.xml");
+        System.setProperty("logback.configurationFile", "logback.xml");
     }
 
     /**
@@ -46,7 +46,7 @@ public class Main {
      * Our logger.
      */
     private static final Logger LOG = LoggerFactory.getLogger("Main");
-
+    
     public static void main(String[] args) {
 
         LOG.info("Starting");

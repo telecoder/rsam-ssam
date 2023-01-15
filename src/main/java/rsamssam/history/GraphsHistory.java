@@ -41,6 +41,10 @@ public class GraphsHistory {
                 .filter(folderName -> !folderName.endsWith("web"))
                 .collect(Collectors.toList());
 
+        if (yearFolders.isEmpty()) {
+            return;
+        }
+
         yearFolders.forEach(path -> populateYear(path));
 
         sortEverything();
@@ -171,6 +175,11 @@ public class GraphsHistory {
      * @return
      */
     public List<String> latestGraphs() {
+
+        if (years.isEmpty()) {
+            return Collections.EMPTY_LIST;
+        }
+
         return graphsForDate(
                 getLatestYear().getName(),
                 getLatestMonth().getName(),
