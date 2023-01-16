@@ -1,6 +1,6 @@
 # Configuration
 
-There are two main configuration files under the folder conf.
+There are two main configuration files under the `conf` folder.
 
 <pre >
 conf
@@ -18,7 +18,7 @@ according to the **replotInterval** parameter in `config.properties`.
 Graphs for queries not in the `queries.json` file will use the default query 
 type and wave server as configured in `config.properties`.
 
-Queries in the queries.json file must have the following json structure:
+Queries in the `queries.json` file must have the following json structure:
 
 ```
 {
@@ -40,10 +40,10 @@ be used.
 `graph` can be **svg** or **png**. If not present, the default will be used.
 
 `windowSize`is the window size for the FFT and its value must be a power of 2, 
-the higher this number, the more frequencyresolution you will have, at the cost 
+the higher this number, the more frequency resolution you will have, at the cost 
 of lower temporal resolution, and viceversa. This value also determines the 
 temporal window  for rsam computations. As an example, for a trace with 100 sps 
-and a window size of  4096 the temporal resolution will be 40.96 seconds and the
+and a window size of  4096, the temporal resolution will be 40.96 seconds and the
 frequency resolution will  be aproximately 0.24 Hz.
 
 `windowFunction` can be **uniform** or **hann** (default).
