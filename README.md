@@ -4,8 +4,6 @@ This program attempts to be a rsam/ssam graph generator compatible with FDSN, Se
 
 rsam and ssam graphs are useful for volcano monitoring and research.
 
-This is a work in progress. Documentation and Docker containers coming soon.
-
 Graphs can be made for very long periods of time, as long as your wave server can handle the load, so please check with your IT team first.
 
 <img width="1079" alt="NZ MAVZ HHZ 10 2022-01-01 2022-12-31 " src="https://user-images.githubusercontent.com/12071589/212435926-8eadd4fd-ba4f-40a7-a8f6-39370f5481e3.png">
