@@ -16,7 +16,8 @@ Graphs for queries in the `queries.json` file will be regenerated periodically
 according to the **replotInterval** parameter in `config.properties`.
 
 Graphs for queries not in the `queries.json` file will use the default query 
-type and wave server as configured in `config.properties`.
+type and wave server as configured in `config.properties`. This customized
+graphs can be created via the web interface at **`rsam-server:19090/custom`**.
 
 Queries in the `queries.json` file must have the following json structure:
 
