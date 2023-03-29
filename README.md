@@ -1,3 +1,5 @@
+![Build Status](https://github.com/telecoder/rsam-ssam/actions/workflows/maven.yml/badge.svg)
+
 # rsam-ssam
 
 This program attempts to be a rsam/ssam graph generator compatible with FDSN, SeedLink and Winston wave servers. Graphs can be periodically generated as well as on demand via a web interface.
