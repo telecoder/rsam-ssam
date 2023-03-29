@@ -1,4 +1,5 @@
 ![Build Status](https://github.com/telecoder/rsam-ssam/actions/workflows/maven.yml/badge.svg)
+![Build Status](https://github.com/telecoder/rsam-ssam/actions/workflows/test.yml/badge.svg)
 
 # rsam-ssam
 
