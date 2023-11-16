@@ -58,22 +58,22 @@
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-core</artifactId>
-            <version>4.3.6</version>
+            <version>4.5.0</version>
         </dependency>
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-web</artifactId>
-            <version>4.3.6</version>
+            <version>4.5.0</version>
         </dependency>
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-web-templ-jade</artifactId>
-            <version>4.3.6</version>
+            <version>4.5.0</version>
         </dependency>
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-template-engines</artifactId>
-            <version>4.3.6</version>
+            <version>4.5.0</version>
             <type>pom</type>
         </dependency>
         <dependency>

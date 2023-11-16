@@ -11,12 +11,12 @@ import rsamssam.query.Query;
  * The Averager function is to reduce the total amount of results according to a
  * calculated averaging factor.
  * <p>
- * Currently this averaging factor is just the amount of days processed, so, a
+ * Currently, this averaging factor is just the amount of days processed, so, a
  * five day rsam-ssam graph will produce the same amount of results than a
  * single day.
  * <p>
- * Results should be added to a averager instance and it will automatically
- * schedules averaging rounds as results are coming in.
+ * Results should be added to an averager instance, and it will automatically
+ * schedule averaging rounds as results come in.
  * <p>
  * An internal blocking queue is used to keep the averaged results. This results
  * should be extracted until this queue is empty.
@@ -101,8 +101,8 @@ public class Averager {
         LOG.info("{} Averaging factor: {}", query.getId(), averagingFactor);
 
         if (averagingFactor == 1) {
-            // if the day is not complete, how many results we should padd?
-            // no leap seconds support, don't actualy matter here ...
+            // if the day is not complete, how many results we should pad?
+            // no leap seconds support, don't actually matter here ...
             resultsPerDay = (int) Math.ceil(86400d * sps / windowSize);
             LOG.info("{} {} bins expected", query.getId(), resultsPerDay);
         }
@@ -208,7 +208,7 @@ public class Averager {
      */
     public double[] getAverageSsam() {
 
-        // lets find the most powerfull frequency
+        // let's find the most powerfull frequency
         double maxEnergy = averageSsam[0];
         for (int i = 0; i < averageSsam.length; i++) {
             if (maxEnergy < averageSsam[i]) {
@@ -216,7 +216,7 @@ public class Averager {
             }
         }
         
-        // now lets normalize the average spectra
+        // now let's normalize the average spectra
         for (int i = 0; i < averageSsam.length; i++) {
             
             // this is the legit average, however ...
